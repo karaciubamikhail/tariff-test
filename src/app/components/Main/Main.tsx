@@ -7,7 +7,7 @@ import { Button } from "../Button";
 import { Warranty } from "../Warranty";
 import { useState } from "react";
 
-export function Main() {
+export function Main({ isPromoActive }: { isPromoActive: boolean }) {
      const [agreed, setAgreed] = useState(false);
   const [checkboxError, setCheckboxError] = useState(false);
 
@@ -18,13 +18,13 @@ export function Main() {
     }
     setCheckboxError(false);
   };
-
+  console.log(isPromoActive)
   return (
     <section className="min-h-screen bg-[#1f2423] text-white">
       <div className="mx-auto max-w-[1200px] px-6 py-6">
         <h1 className="font-mont font-bold leading-[110%] tracking-[0.01em] text-[24px] lg:text-[40px]">
           Выбери подходящий для себя{" "}
-          <span className="text-orange-400">тариф</span>
+          <span className="text-[#FDB056]">тариф</span>
         </h1>
 
         <div className="mt-5 grid gap-8 lg:grid-cols-[380px_1fr] items-start lg:mt-28">
@@ -39,7 +39,7 @@ export function Main() {
           </div>
 
           <div className="w-full lg:max-w-[640px]">
-            <Tarifs />
+            <Tarifs isPromoActive={isPromoActive}/>
             <Attention />
             <CheckBox
             checked={agreed}

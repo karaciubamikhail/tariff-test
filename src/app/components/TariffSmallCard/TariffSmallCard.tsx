@@ -3,11 +3,13 @@ export function TariffSmallCard({
   selected,
   onSelect,
   discount,
+  isPromoActive,
 }: {
   t: any;
   selected: boolean;
   onSelect: () => void;
   discount: number;
+  isPromoActive: boolean;
 }) {
   const cardBase =
     "relative overflow-hidden text-left rounded-[28px] border transition bg-[#3A3F3E]/55 border-white/10 hover:border-white/20";
@@ -28,18 +30,16 @@ export function TariffSmallCard({
         selected ? cardSelected : "",
       ].join(" ")}
     >
+      {isPromoActive && 
       <span className="
         absolute 
         top-3
         right-7.5
         px-[6px] py-[3px]
         -translate-y-1/2
-
         flex items-center gap-[10px]
-
         rounded-b-[8px]
         bg-[#FD5656]
-
         font-gilroy
         text-[16px]
         font-medium
@@ -52,12 +52,13 @@ export function TariffSmallCard({
         lg:top-5 lg:left-6
       ">
         -{discount}%
-      </span>
+      </span>}
       <div className="flex between gap-9 lg:flex-col">
           <div className="flex-col lg:flex lg:between lg:items-center">
             <div className="font-mont font-medium text-[18px] leading-[120%] text-white lg:text-[36px] lg:mt-12">
             {t.period}
           </div>
+          {isPromoActive ?  
           <div>
             <div className="mt-4 font-mont font-semibold text-[34px] leading-none text-white lg:text-[50px] lg:mt-7">
             {t.price} ₽
@@ -65,7 +66,11 @@ export function TariffSmallCard({
           <div className="font-mont text-[16px] leading-[120%] text-[#919191] line-through text-end lg:text-[24px]">
             {t.full_price} ₽
           </div>
+          </div>:
+          <div className="font-mont mt-4 text-[34px] leading-[120%] text-white text-end lg:text-[50px]">
+            {t.full_price} ₽
           </div>
+          }
         </div>
         <div className="mt-10 font-mont text-[14px] leading-[130%] text-white max-w-[111px] lg:text-[16px] lg:max-w-[275px]">
           {t.text}

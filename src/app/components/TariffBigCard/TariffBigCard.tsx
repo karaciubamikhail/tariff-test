@@ -3,12 +3,15 @@ export function TariffBigCard({
   selected,
   onSelect,
   discount,
+  isPromoActive
 }: {
   t: any;
   selected: boolean;
   onSelect: () => void;
   discount: number;
+  isPromoActive: boolean;
 }) {
+  console.log(  isPromoActive)
   return (
     <button
       type="button"
@@ -19,6 +22,7 @@ export function TariffBigCard({
         "bg-[#3A3F3E]/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]",
         selected ? "border-orange-400/80" : "border-white/10 hover:border-white/20",
       ].join(" ")}>
+      {isPromoActive &&
       <span className="
         absolute 
         top-3
@@ -40,7 +44,7 @@ export function TariffBigCard({
         lg:right-auto
       ">
         -{discount}%
-      </span>
+      </span>}
       <span className="
         absolute
         right-3
@@ -60,6 +64,7 @@ export function TariffBigCard({
       <div className="flex between lg:grid gap-4 grid-cols-[180px_1fr] items-center">
         <div className="flex flex-col">
           <div className="font-mont font-medium lg:ml-6 :text-[18px] leading-[120%] tracking-normal text-white lg:text-[26px]">{t.period}</div>
+          {isPromoActive ?  
           <div className="flex flex-col items-end">
             <div className="font-mont pt-4 font-semibold text-[34px] leading-none text-[#FDB056] lg:text-[50px]">
               {t.price} ₽
@@ -68,6 +73,11 @@ export function TariffBigCard({
               {t.full_price} ₽
             </div>
           </div>
+          :
+          <div className="font-mont pt-4 font-semibold text-[34px] leading-none text-white lg:text-[45px]" >
+              {t.full_price} ₽
+          </div>
+          }
         </div>
 
         <div className="font-mont pt-3.5 text-[14px] max-w-[102px] leading-[130%] text-white lg:max-w-[328px] lg:text-[16px]">{t.text}</div>

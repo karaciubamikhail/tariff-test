@@ -2,7 +2,11 @@
 import { useTariffs } from "@/app/features/tariffs/hooks";
 import { TariffsBlock } from "../TariffsBlock";
 
-export function Tarifs() {
+type Props = {
+  isPromoActive: boolean;
+};
+
+export function Tarifs({ isPromoActive }: Props) {
   const { tariffs, isLoading, error, selectedId, setSelectedId, reload } = useTariffs();
 
   if (isLoading) return <div className="p-4">Загрузка...</div>;
@@ -23,6 +27,7 @@ export function Tarifs() {
       tariffs={tariffs}
       selectedId={selectedId}
       onSelect={setSelectedId}
+      isPromoActive={isPromoActive}
     />
   );
 }
