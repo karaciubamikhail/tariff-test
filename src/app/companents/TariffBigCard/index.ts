@@ -1,0 +1,1 @@
+export {TariffBigCard} from './TariffBigCard'

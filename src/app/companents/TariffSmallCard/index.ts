@@ -1,0 +1,1 @@
+export {TariffSmallCard} from './TariffSmallCard'
