@@ -11,7 +11,6 @@ export function TariffBigCard({
   discount: number;
   isPromoActive: boolean;
 }) {
-  console.log(  isPromoActive)
   return (
     <button
       type="button"

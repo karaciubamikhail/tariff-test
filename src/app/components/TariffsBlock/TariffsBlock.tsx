@@ -34,7 +34,6 @@ const cardBase =
 
 const cardSelected =
   "border-orange-400 shadow-[0_0_0_1px_rgba(251,146,60,0.65),0_0_22px_rgba(251,146,60,0.18)]";
-console.log(isPromoActive)
   return (
     <div className="flex flex-col gap-2 lg:w-full lg:max-w-3xl">
       {best && (
