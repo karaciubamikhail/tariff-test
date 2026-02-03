@@ -61,7 +61,7 @@ export function TariffBigCard({
         хит!
       </span>
 
-      <div className="flex between lg:grid gap-4 grid-cols-[180px_1fr] items-center">
+      <div className="flex between lg:grid gap-12 grid-cols-[180px_1fr] items-center lg:gap-4">
         <div className="flex flex-col">
           <div className="font-mont font-medium lg:ml-6 :text-[18px] leading-[120%] tracking-normal text-white lg:text-[26px]">{t.period}</div>
           {isPromoActive ?  
@@ -80,7 +80,7 @@ export function TariffBigCard({
           }
         </div>
 
-        <div className="font-mont pt-3.5 text-[14px] max-w-[102px] leading-[130%] text-white lg:max-w-[328px] lg:text-[16px]">{t.text}</div>
+        <div className="font-mont pt-3.5 text-[14px] max-w-[160px] leading-[130%] text-white lg:max-w-[328px] lg:text-[16px]">{t.text}</div>
       </div>
     </button>
   );

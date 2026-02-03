@@ -53,7 +53,7 @@ export function TariffSmallCard({
       ">
         -{discount}%
       </span>}
-      <div className="flex between gap-9 lg:flex-col">
+      <div className="flex between gap-19 lg:flex-col lg:gap-9">
           <div className="flex-col lg:flex lg:between lg:items-center">
             <div className="font-mont font-medium text-[18px] leading-[120%] text-white lg:text-[36px] lg:mt-12">
             {t.period}
@@ -72,7 +72,7 @@ export function TariffSmallCard({
           </div>
           }
         </div>
-        <div className="mt-10 font-mont text-[14px] leading-[130%] text-white max-w-[111px] lg:text-[16px] lg:max-w-[275px]">
+        <div className="mt-10 font-mont text-[14px] leading-[130%] max-w-[160px] text-white max-w-[111px] lg:text-[16px] lg:max-w-[275px]">
           {t.text}
         </div>
       </div>

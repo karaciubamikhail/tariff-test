@@ -8,6 +8,7 @@ type Props = {
 
 export function Tarifs({ isPromoActive }: Props) {
   const { tariffs, isLoading, error, selectedId, setSelectedId, reload } = useTariffs();
+  console.log(tariffs)
 
   if (isLoading) return <div className="p-4">Загрузка...</div>;
 

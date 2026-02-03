@@ -22,8 +22,12 @@ type Props = {
 };
 
 export function TariffsBlock({ tariffs, selectedId, onSelect, isPromoActive }: Props) {
-  const best = tariffs.find((t) => t.is_best) ?? tariffs[0];
-  const others = tariffs.filter((t) => t.id !== best?.id);
+  const normalized = tariffs.map((t, idx) => ({
+  ...t,
+  uiKey: `${t.id}-${idx}`,
+}));
+const best = normalized.find((t) => t.is_best) ?? normalized[0];
+const others = normalized.filter((t) => !t.is_best);
   
 const cardBase =
   "relative text-left rounded-[22px] border transition bg-zinc-900/60 border-white/10 hover:border-white/20";
@@ -36,7 +40,7 @@ console.log(isPromoActive)
       {best && (
         <TariffBigCard
           t={best}
-          selected={selectedId === best.id}
+          selected={selectedId === best.uiKey}
           onSelect={() => onSelect(best.id)}
           discount={calcDiscount(best.price, best.full_price)}
           isPromoActive = {isPromoActive }
@@ -48,7 +52,7 @@ console.log(isPromoActive)
           <TariffSmallCard
             key={t.id}
             t={t}
-            selected={selectedId === t.id}
+            selected={selectedId === t.uiKey}
             onSelect={() => onSelect(t.id)}
             discount={calcDiscount(t.price, t.full_price)}
             isPromoActive = {isPromoActive }
